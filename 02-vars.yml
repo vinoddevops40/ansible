@@ -9,7 +9,7 @@
     - name: print variable again
       debug:
         msg: Bye {{ URL_PLAY }}
-
+## Play level variables can be access across all the tasks in the Play
 
 - name: Demo of vars on Task Level
   hosts: all
@@ -25,3 +25,19 @@
         msg: Bye {{ URL_task2 }}
       vars:
         URL_task2: task2.example.com
+## Task level variables can be accessed only inside the task
+
+- name: Demo on same variable in the play and task
+  hosts: all
+  vars:
+    URL: Play Level Variable
+  tasks:
+    - name: Print URL
+      debug:
+        msg: Hello {{ URL }}
+      vars:
+        URL: Task Level Variable
+    - name: Print URL
+      debug:
+        msg: Hello {{ URL }}
+
