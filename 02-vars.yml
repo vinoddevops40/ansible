@@ -9,3 +9,19 @@
     - name: print variable again
       debug:
         msg: Bye {{ URL_PLAY }}
+
+
+- name: Demo of vars on Task Level
+  hosts: all
+  tasks:
+    - name: print variable value
+      debug:
+        msg: Hello {{ URL_task1 }}
+      vars:
+        URL_task1: task.example.com
+
+    - name: print variable again
+      debug:
+        msg: Bye {{ URL_task2 }}
+      vars:
+        URL_task2: task2.example.com
