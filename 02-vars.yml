@@ -40,4 +40,4 @@
     - name: Print URL
       debug:
         msg: Hello {{ URL }}
-
+## Task level variables have high precedence than play level variables
