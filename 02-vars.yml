@@ -8,4 +8,4 @@
         msg: Hello {{ URL_PLAY }}
     - name: print variable again
       debug:
-        mag: Bye {{ URL_PLAY }}
+        msg: Bye {{ URL_PLAY }}
