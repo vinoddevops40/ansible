@@ -62,7 +62,7 @@
   hosts: all
   vars_files:
     - sample-vars.yml
-  tasks:
+  tasks:j
     - name: Print URL from FILE
       debug:
         msg: Hello, {{ URL_FILE }}
