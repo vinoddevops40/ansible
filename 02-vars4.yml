@@ -1,0 +1,70 @@
+- name: Demo of vars on Play Level
+  hosts: all
+  vars:
+    URL_PLAY: play.example.com
+  tasks:
+    - name: print variable value
+      debug:
+        msg: Hello {{ URL_PLAY }}
+    - name: print variable again
+      debug:
+        msg: Bye {{ URL_PLAY }}
+## Play level variables can be access across all the tasks in the Play
+
+- name: Demo of vars on Task Level
+  hosts: all
+  tasks:
+    - name: print variable value
+      debug:
+        msg: Hello {{ URL_task1 }}
+      vars:
+        URL_task1: task.example.com
+
+    - name: print variable again
+      debug:
+        msg: Bye {{ URL_task2 }}
+      vars:
+        URL_task2: task2.example.com
+## Task level variables can be accessed only inside the task
+
+- name: Demo on same variable in the play and task
+  hosts: all
+  vars:
+    URL: Play Level Variable
+  tasks:
+    - name: Print URL
+      debug:
+        msg: Hello {{ URL }}
+      vars:
+        URL: Task Level Variable
+    - name: Print URL
+      debug:
+        msg: Hello {{ URL }}
+## Task level variables have high precedence than play level variables
+
+- name: Demo on CLI vars
+  hosts: all
+  tasks:
+    - name: Print URL from CLI
+      debug:
+        msg: Hello, {{ URL_CLI }}
+  ## Pass variable to ansible from Commit line interface
+
+- name: Demo on vars from Inv
+  hosts: all
+  tasks:
+    - name: Print URL from Inv
+      debug:
+        msg: Hello, {{ URL_INV }}
+  ## Pass variable to ansible from Commit line interface
+
+- name: Demo on vars from file
+  hosts: all
+  vars_files:
+    - sample-vars.yml
+  tasks:
+    - name: Print URL from FILE
+      debug:
+        msg: Hello, {{ URL_FILE }}
+  ## Pass variable to ansible from Commit line interface
+
