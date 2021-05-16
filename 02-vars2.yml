@@ -1,0 +1,7 @@
+- name: Demo on vars from Inv
+  hosts: all
+  tasks:
+    - name: Print URL from Inv
+      debug:
+        msg: Hello, {{ URL_INV }}
+## Pass variable to ansible from Commit line interface
