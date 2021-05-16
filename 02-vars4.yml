@@ -68,3 +68,9 @@
         msg: Hello, {{ URL_FILE }}
   ## Pass variable to ansible from Commit line interface
 
+- name: Demo system facts
+  hosts: all
+  tasks:
+    - name: Demo system facts ansible_memtotal_mb
+      debug:
+        msg: Fact - {{ ansible_memtotal_mb }}
