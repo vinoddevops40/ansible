@@ -1,0 +1,9 @@
+- name: Demo on vars from file
+  hosts: all
+  vars_files:
+    - sample-vars.yml
+  tasks:
+    - name: Print URL from FILE
+      debug:
+        msg: Hello, {{ URL_FILE }}
+## Pass variable to ansible from Commit line interface
