@@ -85,3 +85,11 @@
     - name: Print OUT
       debug:
         msg: "{{OUT}}"
+
+    - name: Set a Fact
+      set_fact:
+        UPTIME_OUTPUT: "{{ OUT.stdout }}"
+
+    - name: Print Uptime Output
+      debug:
+        mag: OUTPUT + {{ UPTIME_OUTPUT }}
