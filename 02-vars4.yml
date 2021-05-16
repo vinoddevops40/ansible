@@ -92,4 +92,4 @@
 
     - name: Print Uptime Output
       debug:
-        mag: OUTPUT + {{ UPTIME_OUTPUT }}
+        msg: OUTPUT + {{ UPTIME_OUTPUT }}
