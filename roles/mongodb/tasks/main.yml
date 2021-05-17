@@ -31,10 +31,18 @@
     name: common
     tasks_from: download-github
 
+#- name: Load Scheme
+#    shell: mongo < catalogue.js && mongo < users.js
+#    args:
+#      chdir: /tmp/mongodb-main/
+
 - name: Load Scheme
-    shell: mongo < catalogue.js && mongo < users.js
+    shell: mongo < {{ item }}
     args:
       chdir: /tmp/mongodb-main/
+        - catalogue.js
+        - users.js
+
 
 #  mongodb_shell:
 #    file: "/tmp/mongodb-main/users.js"
