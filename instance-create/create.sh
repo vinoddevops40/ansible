@@ -11,6 +11,7 @@ fi
 
 
 Instance_Create() {
+COMPONENT=$1
 ##aws ec2 run-instances  --launch-template LaunchTemplateId=${LID},Version=${LVER}  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=${COMPONENT}}]" | jq
 INSTANCE_EXIST=$(aws ec2 describe-instances --filters Name=tag:Name,Values=${COMPONENT} | jq .Reservations[])
 STATE=$(aws ec2 describe-instances --filters Name=tag:Name,Values=user | jq .Reservations[].Instances[].State.Name | xargs)
