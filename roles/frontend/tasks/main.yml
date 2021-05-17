@@ -23,3 +23,18 @@
   yum:
     name: nginx
     state: installed
+
+- name: Download from Github
+  include_role:
+    name: common
+    tasks_from: download-github
+
+- name: remove html directoru
+  file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Copy the extracted content
+  copy:
+    src: /tmp/frontend-main/static
+    dest: /usr/share/nginx/html

@@ -1,0 +1,17 @@
+- name: Download from Github
+  get_url:
+    url: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+    dest: /tmp/frontend.zip
+
+
+
+
+
+
+
+
+name: Download and extract
+  unarchive:
+    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+    dest: /tmp/frontend.zip
+    remote_src: yes
