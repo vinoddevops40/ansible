@@ -2,6 +2,10 @@
   hosts: all
   become: yes
   tasks:
-    - name: Import frontend roles
-      import_roles:
+    - name: Import frontend Role
+      import_role:
         name: frontend
+
+    - name: Import Mongodb Role
+      import_role:
+        - name: mongodb
