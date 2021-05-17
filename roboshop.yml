@@ -5,9 +5,9 @@
     - name: Import frontend Role
       import_role:
         name: frontend
-        when: APP == "frontend"
+      when: APP == "frontend"
 
     - name: Import Mongodb Role
       import_role:
         name: mongodb
-        when: APP == "mongodb"
+      when: APP == "mongodb"
