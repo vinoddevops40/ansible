@@ -1,0 +1,2 @@
+- name: RoboShop Project Setup
+  hosts: all
