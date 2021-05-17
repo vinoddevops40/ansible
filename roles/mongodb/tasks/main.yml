@@ -26,6 +26,10 @@
     state: restarted
     enabled: yes
 
+- name: Download from Github
+  include_role:
+    name: common
+    tasks_from: download-github
 
 #  # yum install -y mongodb-org
 #  # systemctl enable mongod
