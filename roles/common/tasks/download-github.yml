@@ -6,5 +6,5 @@
 - name: extract downloaded files
   unarchive:
     src: /tmp/{{COMPONENT}}.zip
-    dest: /tmp/frontend.zip
+    dest: /tmp
     remote_src: yes
