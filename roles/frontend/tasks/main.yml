@@ -20,6 +20,8 @@
 ## systemctl restart nginx
 
 - name: install nginx
+  hosts: all
+  become: yes
   yum:
     name: nginx
     state: installed
