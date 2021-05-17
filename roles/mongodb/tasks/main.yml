@@ -32,9 +32,13 @@
     tasks_from: download-github
 
 - name: Load Scheme
-  mongodb_shell:
-    file: "/tmp/mongodb-main/users.js"
-    idempotent: yes
+    shell: mongo < catalogue.js && mongo < users.js
+    args:
+      chdir: /tmp/mongodb-main/
+
+#  mongodb_shell:
+#    file: "/tmp/mongodb-main/users.js"
+#    idempotent: yes
 
 #  # mongo < catalogue.js
 #  # mongo < users.js
