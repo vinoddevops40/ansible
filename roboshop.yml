@@ -8,4 +8,4 @@
 
     - name: Import Mongodb Role
       import_role:
-        - name: mongodb
+        name: mongodb
