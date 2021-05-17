@@ -15,3 +15,10 @@
     dest: /tmp
     remote_src: yes
 
+
+- name: Copy the extracted content
+  copy:
+    src: /tmp/{{COMPONENT}}-main/static/
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
