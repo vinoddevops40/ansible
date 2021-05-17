@@ -1,5 +1,7 @@
 - name: RoboShop Project Setup
   hosts: all
   become: yes
-  roles:
-    - frontend
+  tasks:
+    - name: Import frontend roles
+      import_roles:
+        name: frontend
