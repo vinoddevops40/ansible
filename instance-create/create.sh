@@ -4,10 +4,10 @@ LID=lt-0da1fb56f241b319b
 LVER=1
 #COMPONENT=$1
 
-if [ -z "${COMPONENT}" ]; then
-  echo "Component Name Input Needed"
-  exit 1
-fi
+#if [ -z "${COMPONENT}" ]; then
+#  echo "Component Name Input Needed"
+#  exit 1
+#fi
 
 
 Instance_Create() {
