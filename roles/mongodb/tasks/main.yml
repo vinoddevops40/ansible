@@ -41,8 +41,8 @@
     args:
       chdir: /tmp/mongodb-main/
     loop:
-        - catalogue.js
-        - users.js
+      - catalogue.js
+      - users.js
 
 
 #  mongodb_shell:
