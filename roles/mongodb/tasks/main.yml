@@ -7,13 +7,24 @@
   yum:
     name: mongodb-org
     state: installed
+#
+#- name: Config change of mongodb
+#  replace:
+#    path: /etc/mongod.conf
+#    regexp: '127.0.0.1'
+#    replace: '0.0.0.0'
 
-- name: Config change of mongodb
-  replace:
+- name: Config change of MongoDB to listen on 0.0.0.0
+  lineinfile:
     path: /etc/mongod.conf
-    regexp: '127.0.0.1'
-    replace: '0.0.0.0'
+    regexp: '^  bindIp'
+    lione: '  bindIp: 0.0.0.0'
 
+- name: Restart Mongodb
+  systemd:
+    name: mongod
+    state: restarted
+    enabled: yes
 
 
 #  # yum install -y mongodb-org
