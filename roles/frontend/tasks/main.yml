@@ -36,6 +36,6 @@
 
 - name: Copy the extracted content
   copy:
-    src: /tmp/frontend-main/static
+    src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html
     remote_src: yes
