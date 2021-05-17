@@ -37,12 +37,12 @@
 #      chdir: /tmp/mongodb-main/
 
 - name: Load Scheme
-    shell: mongo < {{ item }}
-    args:
-      chdir: /tmp/mongodb-main/
-    loop:
-      - catalogue.js
-      - users.js
+  shell: mongo < {{ item }}
+  args:
+    chdir: /tmp/mongodb-main/
+  loop:
+    - catalogue.js
+    - users.js
 
 
 #  mongodb_shell:
