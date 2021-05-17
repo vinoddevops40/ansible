@@ -3,7 +3,7 @@
     url: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
     dest: /tmp/{{COMPONENT}}.zip
 
-name: extract downloaded files
+- name: extract downloaded files
   unarchive:
     src: /tmp/{{COMPONENT}}.zip
     dest: /tmp/frontend.zip
