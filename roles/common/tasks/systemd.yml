@@ -18,6 +18,7 @@
     - {name: "MONGO_DNSNAME", endpoint: "mongodb.vinodmcs21.com"}
     - {name: "REDIS_ENDPOINT", endpoint: "redis.vinodmcs21.com"}
     - {name: "MONGO_ENDPOINT", endpoint: "mongodb.vinodmcs21.com"}
+    - {name: "CATALOGUE_ENDPOINT", endpoint: "catalogue.vinodmcs21.com"}
 
 
 

@@ -32,11 +32,11 @@
       when: APP == "user"
       tags: user
 
-#    - name: Import cart Role
-#      import_role:
-#        name: cart
-#      when: APP == "cart"
-#      tags: cart
+    - name: Import cart Role
+      import_role:
+        name: cart
+      when: APP == "cart"
+      tags: cart
 #
 #    - name: Import mysql Role
 #      import_role:

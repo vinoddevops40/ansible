@@ -1,1 +1,9 @@
+- name: OS Pre-reqs
+  include_role:
+    name: common
+    tasks_from: os-prereqs
 
+- name: import NodeJS tasks
+  include_role:
+    name: common
+    tasks_from: nodejs
