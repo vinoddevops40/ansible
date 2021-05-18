@@ -1,0 +1,25 @@
+- name: OS Pre-reqs
+  include_role:
+    name: common
+    tasks_from: os-prereqs
+
+- name: Setup Yum repos for mysql
+  copy:
+    sec: mysql.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Remove maridb libs
+  yum:
+    name: mariadb-libs
+    state: absent
+
+- name: install mysql server
+  yum:
+    name: mysql-community-server
+    state: installed
+
+- name: start mysql
+  systemd:
+    name: mysqld
+    state: started
+

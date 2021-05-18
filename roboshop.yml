@@ -37,12 +37,12 @@
         name: cart
       when: APP == "cart"
       tags: cart
-#
-#    - name: Import mysql Role
-#      import_role:
-#        name: mysql
-#      when: APP == "mysql"
-#      tags: mysql
+
+    - name: Import mysql Role
+      import_role:
+        name: mysql
+      when: APP == "mysql"
+      tags: mysql
 #
 #    - name: Import shipping Role
 #      import_role:
