@@ -23,3 +23,8 @@
     remote_src: yes
   when: COMPONENT == "frontend"
 
+- name: Copy files from tmp to app directory
+  copy:
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}
+
