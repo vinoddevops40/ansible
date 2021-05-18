@@ -18,6 +18,8 @@
 - name: Install NodeJs Deps
   npm:
     path: /home/roboshop/{{COMPONENT}}
+  become_user: roboshop
+
 
 #  $ npm install
 #NOTE: We need to update the IP address of MONGODB Server in systemd.service file
