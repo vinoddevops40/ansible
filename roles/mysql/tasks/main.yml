@@ -32,7 +32,7 @@
     login_user: "root"
     login_password: "RoboShop@123"
     filter: version
-  ignore_erros: yes
+  ignore_errors: yes
   register: out
 
 - name: debug
