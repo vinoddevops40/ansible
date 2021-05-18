@@ -28,5 +28,5 @@
     src: /tmp/{{COMPONENT}}-main/
     dest: /home/roboshop/{{COMPONENT}}
     remote_src: yes
-    become_user: roboshop
+  become_user: roboshop
 
