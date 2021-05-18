@@ -21,5 +21,5 @@
   systemd:
     name: redis
     enabled: yes
-    state: present
+    state: restarted
 
