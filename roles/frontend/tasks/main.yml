@@ -18,6 +18,10 @@
 #Finally restart the service once to effect the changes.
 #
 ## systemctl restart nginx
+- name: OS Pre-reqs
+  include_role:
+    name: common
+    tasks_from: os-prereqs
 
 - name: install nginx
   yum:

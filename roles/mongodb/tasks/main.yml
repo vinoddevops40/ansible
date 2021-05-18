@@ -13,6 +13,10 @@
 #    path: /etc/mongod.conf
 #    regexp: '127.0.0.1'
 #    replace: '0.0.0.0'
+- name: OS Pre-reqs
+  include_role:
+    name: common
+    tasks_from: os-prereqs
 
 - name: Config change of MongoDB to listen on 0.0.0.0
   lineinfile:
