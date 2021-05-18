@@ -52,12 +52,7 @@
         dest: /tmp
 
     - name: Reset the Password
-      mysql_db:
-        state: import
-        name: all
-        target: /tmp/reset-password.sql
-        login_user: "root"
-        login_password: "{{ DPASS.stdout }}"
+      mysql_db: mysql -u root -p"{{ DPASS.stdout }}" </tmp/reset-password.sql
 
 
 
