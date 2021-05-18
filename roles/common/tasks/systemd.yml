@@ -11,6 +11,7 @@
 
 - name: Replace End Points in Systemd configuration
   replace:
+    path: /etc/systemd/system/{{COMPONENT}}.service
     regex: "{{item.name}}"
     replace: "{{item.endpoint}}"
   loop:
