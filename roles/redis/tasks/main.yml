@@ -4,3 +4,4 @@
       - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
       - redis
     state: installed
+    enablerepo: remi
