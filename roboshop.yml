@@ -26,12 +26,12 @@
       when: APP == "redis"
       tags: redis
 #
-#    - name: Import user Role
-#      import_role:
-#        name: user
-#      when: APP == "user"
-#      tags: user
-#
+    - name: Import user Role
+      import_role:
+        name: user
+      when: APP == "user"
+      tags: user
+
 #    - name: Import cart Role
 #      import_role:
 #        name: cart
