@@ -12,9 +12,9 @@
     enablerepo: remi
 
 - name: Update redis listen Address
-  replace:
+  lineinfile:
     path: /etc/redis.conf
-    replace: 'bind 0.0.0.0'
+    line: 'bind 0.0.0.0'
     regexp: '^bind'
 
 - name: Restart Redis
