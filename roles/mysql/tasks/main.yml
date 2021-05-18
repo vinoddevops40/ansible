@@ -35,9 +35,30 @@
   ignore_errors: yes
   register: out
 
-- name: debug
-  debug:
-    msg: "{{out}}"
+- name: Resetting the default PW
+  when: out.failed | bool
+  block:
+    - name: debug
+      debug:
+        msg: "{{out}}"
+
+    - name: Grab default Password
+      shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
+      register: DPASS
+
+    - name: Copy Pasword reset sql file
+      copy:
+        src: reset-password.sql
+        dest: /tmp
+
+    - name: Reset the Password
+      mysql_db:
+        state: import
+        name: all
+        target: /tmp/reset-password.sql
+        login_user: "root"
+        login_password: "{{ pass.stdout }}"
+
 
 
 
