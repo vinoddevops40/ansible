@@ -15,7 +15,9 @@
 
 - name: install mysql server
   yum:
-    name: mysql-community-server
+    name:
+    - mysql-community-server
+    - MySQL-python
     state: installed
 
 - name: start mysql
@@ -23,4 +25,18 @@
     name: mysqld
     state: started
     enabled: yes
+
+- name: Check if mysql PW is set
+  mysql_info:
+    login_user: "root"
+    login_password: "RoboShop@123"
+    filter: version
+  ignore_erros: yes
+  register: out
+
+- name: debug
+  debug:
+    msg: "{{out}}"
+
+
 
