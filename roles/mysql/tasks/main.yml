@@ -57,7 +57,7 @@
         name: all
         target: /tmp/reset-password.sql
         login_user: "root"
-        login_password: "{{ pass.stdout }}"
+        login_password: "{{ DPASS.stdout }}"
 
 
 
