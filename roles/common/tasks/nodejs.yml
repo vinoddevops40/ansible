@@ -20,4 +20,5 @@
     path: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
-
+- name: Setup Systemd for {{COMPONENET}}
+  include_tasks: "systemd.yml"
