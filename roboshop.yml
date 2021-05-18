@@ -19,3 +19,9 @@
         name: catalogue
       when: APP == "catalogue"
       tags: catalogue
+
+    - name: Import redis Role
+      import_role:
+        name: redis
+      when: APP == "redis"
+      tags: redis
