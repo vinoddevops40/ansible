@@ -1,24 +1,10 @@
-- name: install NodeJS
-  yum:
-    name:
-      - nodejs
-      - make
-      - gcc-c++
-    state: present
 
-- name: create Roboshop User
-  user:
-    name: roboshop
 
-- name: Download from Github
+- name: import NodeJS tasks
   include_role:
     name: common
-    tasks_from: download-github
+    tasks_from: nodejs
 
-- name: Install NodeJs Deps
-  npm:
-    path: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
 
 
 
