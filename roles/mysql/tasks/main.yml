@@ -22,4 +22,5 @@
   systemd:
     name: mysqld
     state: started
+    enabled: yes
 
