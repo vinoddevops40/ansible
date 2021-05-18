@@ -38,10 +38,6 @@
 - name: Resetting the default PW
   when: out.failed | bool
   block:
-    - name: debug
-      debug:
-        msg: "{{out}}"
-
     - name: Grab default Password
       shell: grep 'temporary password' /var/log/mysqld.log | awk '{print $NF}'
       register: DPASS
