@@ -10,3 +10,16 @@
       - redis
     state: installed
     enablerepo: remi
+
+- name: Update redis listen Address
+  replace:
+    path: /etc/redis.conf
+    replace: 'bind 0.0.0.0'
+    regexp: '^bind'
+
+- name: Restart Redis
+  systemd:
+    name: redis
+    enabled: yes
+    state: present
+
