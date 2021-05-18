@@ -16,6 +16,12 @@
     replace: "{{item.endpoint}}"
   loop:
     - {name: "MONGO_DNSNAME", endpoint: "mongodb.vinodmcs21.com"}
+    - {name: "REDIS_ENDPOINT", endpoint: "redis.vinodmcs21.com"}
+    - {name: "MONGO_ENDPOINT", endpoint: "mongodb.vinodmcs21.com"}
+
+
+
+
 
 - name: Restart {{COMPONENT}} Service
   systemd:
