@@ -27,4 +27,5 @@
   copy:
     src: /tmp/{{COMPONENT}}-main/
     dest: /home/roboshop/{{COMPONENT}}
+    remote_src: yes
 
