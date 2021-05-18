@@ -5,7 +5,7 @@
 
 - name: Setup Yum repos for mysql
   copy:
-    sec: mysql.repo
+    src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
 
 - name: Remove maridb libs
