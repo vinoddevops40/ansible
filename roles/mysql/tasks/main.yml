@@ -48,7 +48,7 @@
         dest: /tmp
 
     - name: Reset the Password
-      mysql_db: mysql -u root -p"{{ DPASS.stdout }}" </tmp/reset-password.sql
+      shell: mysql -u root -p"{{ DPASS.stdout }}" </tmp/reset-password.sql
 
 
 
