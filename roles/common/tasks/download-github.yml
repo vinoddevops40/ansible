@@ -29,4 +29,5 @@
     dest: /home/roboshop/{{COMPONENT}}
     remote_src: yes
   become_user: roboshop
+  when: COMPONENT == "catalogue" or COMPONENT == "cart" or COMPONENT == "user" or COMPONENT == "payment" or COMPONENT == "shipping"
 
