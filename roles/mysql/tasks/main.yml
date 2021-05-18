@@ -26,6 +26,7 @@
     state: started
     enabled: yes
 
+
 - name: Check if mysql PW is set
   mysql_info:
     login_user: "root"
