@@ -1,0 +1,17 @@
+
+
+
+## mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+## systemctl daemon-reload
+## systemctl start catalogue
+## systemctl enable catalogue
+
+- name: setup systemd service
+  shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Replace End Points in Systemd configuration
+  replace:
+    regex: "{{item.name}}"
+    replace: "{{item.endpoint}}"
+  loop:
+    - {name: "MONGO_DNSNAME", endpoint: "mongodb.vinodmcs21.com"}
