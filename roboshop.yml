@@ -25,3 +25,39 @@
         name: redis
       when: APP == "redis"
       tags: redis
+
+    - name: Import user Role
+      import_role:
+        name: user
+      when: APP == "user"
+      tags: user
+
+    - name: Import cart Role
+      import_role:
+        name: cart
+      when: APP == "cart"
+      tags: cart
+
+    - name: Import mysql Role
+      import_role:
+        name: mysql
+      when: APP == "mysql"
+      tags: mysql
+
+    - name: Import shipping Role
+      import_role:
+        name: shipping
+      when: APP == "shipping"
+      tags: shipping
+
+    - name: Import rabbitmq Role
+      import_role:
+        name: rabbitmq
+      when: APP == "rabbitmq"
+      tags: rabbitmq
+
+    - name: Import payment Role
+      import_role:
+        name: payment
+      when: APP == "payment"
+      tags: payment
