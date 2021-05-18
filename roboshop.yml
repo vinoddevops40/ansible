@@ -13,3 +13,9 @@
         name: mongodb
       when: APP == "mongodb"
       tags: mongodb
+
+    - name: Import catalogue Role
+      import_role:
+        name: catalogue
+      when: APP == "catalogue"
+      tags: catalogue
