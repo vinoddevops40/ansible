@@ -1,6 +1,6 @@
 - name: install NodeJS
   yum:
-    name:maven
+    name: maven
     state: present
 
 - name: create Roboshop User
