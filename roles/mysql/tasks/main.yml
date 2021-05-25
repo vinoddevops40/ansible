@@ -50,6 +50,13 @@
     - name: Reset the Password
       shell: mysql --connect-expired-password -u root -p"{{ DPASS.stdout }}" </tmp/reset-password.sql
 
+- name: Download from Github
+  include_role:
+    name: common
+    tasks_from: download-github
+
+- name: Load Schema
+  shell: mysql -u root -p'Roboshop@123' <shipping.sql
 
 
 
