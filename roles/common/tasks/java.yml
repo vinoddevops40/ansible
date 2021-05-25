@@ -12,10 +12,10 @@
     name: common
     tasks_from: download-github
 
-- name: Install NodeJs Deps
+- name: Install maven Deps and compile code
   shell: mvn clean package
   args:
-    - chdir: /home/roboshop/{{COMPONENT}}
+    chdir: /home/roboshop/{{COMPONENT}}
   become_user: roboshop
 
 - name: Copy artifact to Project Path
