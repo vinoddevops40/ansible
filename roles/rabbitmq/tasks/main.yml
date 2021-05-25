@@ -1,0 +1,34 @@
+- name: OS Pre-reqs
+  include_role:
+    name: common
+    tasks_from: os-prereqs
+
+- name: Install ERLang
+  yum:
+    name: https://github.com/rabbitmq/erlang-rpm/releases/download/v23.2.6/erlang-23.2.6-1.el7.x86_64.rpm
+    state: present
+
+- name: Setup RabbitMQ repos
+  shell: curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
+
+- name: Install RabbitMQ
+  yum:
+    name: rabbitmq-server
+    state: present
+
+- name: Start RabbitMQ Service
+  systemd:
+    name: rabbitmq-server
+    enabled: yes
+    state: started
+
+- name: Setup Project User in RabbitmQ
+  rabbitmq_user:
+    user: roboshop
+    password: roboshop123
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
+    tags: administrator
