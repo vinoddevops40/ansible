@@ -57,6 +57,7 @@
 
 - name: Load Schema
   shell: mysql -u root -p'Roboshop@123' <shipping.sql
-
+  args:
+    chdir: /tmp/mysql-main
 
 
