@@ -56,7 +56,7 @@
     tasks_from: download-github
 
 - name: Load Schema
-  shell: mysql --connect-expired-password -u root -p'Roboshop@123' <shipping.sql
+  shell: mysql --connect-expired-password -u root -p'RoboShop@123' <shipping.sql
   args:
     chdir: /tmp/mysql-main
 
