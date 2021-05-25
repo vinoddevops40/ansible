@@ -50,14 +50,14 @@
       when: APP == "shipping"
       tags: shipping
 
-#    - name: Import rabbitmq Role
-#      import_role:
-#        name: rabbitmq
-#      when: APP == "rabbitmq"
-#      tags: rabbitmq
-#
-#    - name: Import payment Role
-#      import_role:
-#        name: payment
-#      when: APP == "payment"
-#      tags: payment
+    - name: Import rabbitmq Role
+      import_role:
+        name: rabbitmq
+      when: APP == "rabbitmq"
+      tags: rabbitmq
+
+    - name: Import payment Role
+      import_role:
+        name: payment
+      when: APP == "payment"
+      tags: payment
