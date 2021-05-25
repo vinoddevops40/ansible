@@ -21,9 +21,9 @@
     - {name: "CATALOGUE_ENDPOINT", endpoint: "catalogue.vinodmcs21.com"}
     - {name: "CARTENDPOINT", endpoint: "cart.vinodmcs21.com"}
     - {name: "DBHOST", endpoint: "mysql.vinodmcs21.com"}
-    - {name: "CARTHOST", endpoint: "cart-{{ENV}}.devopsb55.tk" }
-    - {name: "USERHOST", endpoint: "user-{{ENV}}.devopsb55.tk" }
-    - {name: "AMQPHOST", endpoint: "rabbitmq-{{ENV}}.devopsb55.tk" }
+    - {name: "CARTHOST", endpoint: "cart.vinodmcs21.com" }
+    - {name: "USERHOST", endpoint: "user.vinodmcs21.com" }
+    - {name: "AMQPHOST", endpoint: "rabbitmq.vinodmcs21.com" }
 
 
 
