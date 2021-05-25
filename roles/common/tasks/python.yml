@@ -1,0 +1,39 @@
+- name: Install Python3
+  yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: installed
+
+- name: Create RoboShop User
+  user:
+    name: roboshop
+  register: uout
+
+- name: Download from GitHib
+  include_role:
+    name: common
+    tasks_from: download-github
+
+
+- name: Install specified python requirements
+  pip:
+    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    executable: pip3
+
+- name: Update User Info
+  lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/payment.ini
+    regexp: '^uid'
+    line: "uid = {{uout.uid}}"
+
+- name: Update Group Info
+  lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/payment.ini
+    regexp: '^gid'
+    line: "uid = {{uout.group}}"
+
+- name: Setup SystemD for {{ COMPONENT }}
+  include_tasks: "systemd.yml"
+
