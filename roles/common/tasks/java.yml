@@ -21,7 +21,7 @@
 - name: Copy artifact to Project Path
   shell: mv target/shipping-1.0.jar shipping.jar
   args:
-    - chdir: /home/roboshop/{{COMPONENT}}
+    chdir: /home/roboshop/{{COMPONENT}}
 
 - name: Setup Systemd for {{COMPONENET}}
   include_tasks: "systemd.yml"
