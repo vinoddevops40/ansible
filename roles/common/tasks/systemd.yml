@@ -6,25 +6,31 @@
 ## systemctl start catalogue
 ## systemctl enable catalogue
 
-- name: setup systemd service
-  shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
+#- name: Setup SystemD Service
+#  shell: mv /home/roboshop/{{COMPONENT}}/systemd.service /etc/systemd/system/{{COMPONENT}}.service
+#
+#- name: Replace ENdpoints in SystemD Configuration
+#  replace:
+#    path: /etc/systemd/system/{{COMPONENT}}.service
+#    regexp: "{{item.name}}"
+#    replace: "{{item.endpoint}}"
+#  loop:
+#    - {name: "MONGO_DNSNAME", endpoint: "mongodb-{{ENV}}.devopsb55.tk"}
+#    #- {name: "CART_HOST", endpoint: "cart.devopsb55.tk" }
+#    - {name: "REDIS_ENDPOINT", endpoint: "redis-{{ENV}}.devopsb55.tk" }
+#    - {name: "MONGO_ENDPOINT", endpoint: "mongodb-{{ENV}}.devopsb55.tk" }
+#    - {name: "CATALOGUE_ENDPOINT", endpoint: "catalogue-{{ENV}}.devopsb55.tk" }
+#    - {name: "CARTENDPOINT", endpoint: "cart-{{ENV}}.devopsb55.tk" }
+#    - {name: "DBHOST", endpoint: "mysql-{{ENV}}.devopsb55.tk" }
+#    - {name: "CARTHOST", endpoint: "cart-{{ENV}}.devopsb55.tk" }
+#    - {name: "USERHOST", endpoint: "user-{{ENV}}.devopsb55.tk" }
+#    - {name: "AMQPHOST", endpoint: "rabbitmq-{{ENV}}.devopsb55.tk" }
+#### Above lines are commented because we moved from GitHub to Nexus
 
-- name: Replace End Points in Systemd configuration
-  replace:
-    path: /etc/systemd/system/{{COMPONENT}}.service
-    regexp: "{{item.name}}"
-    replace: "{{item.endpoint}}"
-  loop:
-    - {name: "MONGO_DNSNAME", endpoint: "mongodb-{{ENV}}.vinodmcs21.com"}
-    - {name: "REDIS_ENDPOINT", endpoint: "redis-{{ENV}}.vinodmcs21.com"}
-    - {name: "MONGO_ENDPOINT", endpoint: "mongodb-{{ENV}}.vinodmcs21.com"}
-    - {name: "CATALOGUE_ENDPOINT", endpoint: "catalogue-{{ENV}}.vinodmcs21.com"}
-    - {name: "CARTENDPOINT", endpoint: "cart-{{ENV}}.vinodmcs21.com"}
-    - {name: "DBHOST", endpoint: "mysql-{{ENV}}.vinodmcs21.com"}
-    - {name: "CARTHOST", endpoint: "cart-{{ENV}}.vinodmcs21.com" }
-    - {name: "USERHOST", endpoint: "user-{{ENV}}.vinodmcs21.com" }
-    - {name: "AMQPHOST", endpoint: "rabbitmq-{{ENV}}.vinodmcs21.com" }
-
+- name: Copy Systemd File
+  template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
 
 - name: Restart {{COMPONENT}} Service
