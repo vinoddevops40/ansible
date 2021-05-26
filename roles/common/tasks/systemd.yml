@@ -15,15 +15,15 @@
     regexp: "{{item.name}}"
     replace: "{{item.endpoint}}"
   loop:
-    - {name: "MONGO_DNSNAME", endpoint: "mongodb.vinodmcs21.com"}
-    - {name: "REDIS_ENDPOINT", endpoint: "redis.vinodmcs21.com"}
-    - {name: "MONGO_ENDPOINT", endpoint: "mongodb.vinodmcs21.com"}
-    - {name: "CATALOGUE_ENDPOINT", endpoint: "catalogue.vinodmcs21.com"}
-    - {name: "CARTENDPOINT", endpoint: "cart.vinodmcs21.com"}
-    - {name: "DBHOST", endpoint: "mysql.vinodmcs21.com"}
-    - {name: "CARTHOST", endpoint: "cart.vinodmcs21.com" }
-    - {name: "USERHOST", endpoint: "user.vinodmcs21.com" }
-    - {name: "AMQPHOST", endpoint: "rabbitmq.vinodmcs21.com" }
+    - {name: "MONGO_DNSNAME", endpoint: "mongodb-{{ENV}}.vinodmcs21.com"}
+    - {name: "REDIS_ENDPOINT", endpoint: "redis-{{ENV}}.vinodmcs21.com"}
+    - {name: "MONGO_ENDPOINT", endpoint: "mongodb-{{ENV}}.vinodmcs21.com"}
+    - {name: "CATALOGUE_ENDPOINT", endpoint: "catalogue-{{ENV}}.vinodmcs21.com"}
+    - {name: "CARTENDPOINT", endpoint: "cart-{{ENV}}.vinodmcs21.com"}
+    - {name: "DBHOST", endpoint: "mysql-{{ENV}}.vinodmcs21.com"}
+    - {name: "CARTHOST", endpoint: "cart-{{ENV}}.vinodmcs21.com" }
+    - {name: "USERHOST", endpoint: "user-{{ENV}}.vinodmcs21.com" }
+    - {name: "AMQPHOST", endpoint: "rabbitmq-{{ENV}}.vinodmcs21.com" }
 
 
 
