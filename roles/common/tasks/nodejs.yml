@@ -10,10 +10,17 @@
   user:
     name: roboshop
 
-- name: Download from Github
+#- name: Download from Github
+#  include_role:
+#    name: common
+#    tasks_from: download-github
+
+- name: Download from Nexus
   include_role:
     name: common
-    tasks_from: download-github
+    tasks_from: download-nexus
+  vars:
+    ARCHIVE_PATH: "/home/roboshop/{{COMPONENT}}"
 
 - name: Install NodeJs Deps
   npm:
