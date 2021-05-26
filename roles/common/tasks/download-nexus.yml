@@ -9,11 +9,20 @@
 #    dest: /tmp
 #    remote_src: yes
 
+- name: Delete the old content
+  file:
+    path: "{{ ARCHIVE_PATH }}"
+    state: absent
+
+- name: Create the component directory
+  file:
+    path: "{{ ARCHIVE_PATH }}"
+    state: directory
 
 - name: Download from Nexus
   unarchive:
     src: http://172.31.6.53:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{TAG}}.zip
-    dest: /tmp
+    dest: "{{ ARCHIVE_PATH }}"
     remote_src: yes
 
 

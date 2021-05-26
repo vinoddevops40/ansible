@@ -42,6 +42,8 @@
   include_role:
     name: common
     tasks_from: download-nexus
+  vars:
+    ARCHIVE_PATH: /usr/share/nginx/html
 
 #- name: Copy Roboshop Configuration
 #  template:
