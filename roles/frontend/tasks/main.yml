@@ -38,6 +38,11 @@
     name: common
     tasks_from: download-github
 
+- name: Copy Roboshop Configuration
+  tamplate:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
 - name: Start nginx service
   systemd:
     name: nginx
