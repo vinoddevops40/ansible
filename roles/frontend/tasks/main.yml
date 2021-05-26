@@ -39,7 +39,7 @@
     tasks_from: download-github
 
 - name: Copy Roboshop Configuration
-  tamplate:
+  template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
