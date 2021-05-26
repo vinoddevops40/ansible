@@ -1,0 +1,34 @@
+#- name: Download from Github
+#  get_url:
+#    url: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+#    dest: /tmp/{{COMPONENT}}.zip
+#
+#- name: extract downloaded files
+#  unarchive:
+#    src: /tmp/{{COMPONENT}}.zip
+#    dest: /tmp
+#    remote_src: yes
+
+
+- name: Download from Nexus
+  unarchive:
+    src: http://172.31.6.53:8081/repository/${COMPONENT}/${COMPONENT}-${TAG}.zip
+    dest: /tmp
+    remote_src: yes
+
+
+#- name: Copy the extracted content
+#  copy:
+#    src: /tmp/{{COMPONENT}}/static/
+#    dest: /usr/share/nginx/html
+#    remote_src: yes
+#  when: COMPONENT == "frontend"
+#
+#- name: Copy files from tmp to app directory
+#  copy:
+#    src: /tmp/{{COMPONENT}}-main/
+#    dest: /home/roboshop/{{COMPONENT}}
+#    remote_src: yes
+#  become_user: roboshop
+#  when: COMPONENT == "catalogue" or COMPONENT == "cart" or COMPONENT == "user" or COMPONENT == "shipping" or COMPONENT == "payment"
+#
