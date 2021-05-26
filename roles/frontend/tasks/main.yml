@@ -43,10 +43,10 @@
     name: common
     tasks_from: download-nexus
 
-- name: Copy Roboshop Configuration
-  template:
-    src: roboshop.conf
-    dest: /etc/nginx/default.d/roboshop.conf
+#- name: Copy Roboshop Configuration
+#  template:
+#    src: roboshop.conf
+#    dest: /etc/nginx/default.d/roboshop.conf
 
 - name: Start nginx service
   systemd:

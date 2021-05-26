@@ -12,7 +12,7 @@
 
 - name: Download from Nexus
   unarchive:
-    src: http://172.31.6.53:8081/repository/${COMPONENT}/${COMPONENT}-${TAG}.zip
+    src: http://172.31.6.53:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{TAG}}.zip
     dest: /tmp
     remote_src: yes
 
