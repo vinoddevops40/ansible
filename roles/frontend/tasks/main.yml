@@ -33,10 +33,15 @@
     path: /usr/share/nginx/html
     state: absent
 
-- name: Download from Github
+#- name: Download from Github
+#  include_role:
+#    name: common
+#    tasks_from: download-github
+
+- name: Download from Nexus
   include_role:
     name: common
-    tasks_from: download-github
+    tasks_from: download-nexus
 
 - name: Copy Roboshop Configuration
   template:
