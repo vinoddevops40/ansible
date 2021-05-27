@@ -1,0 +1,11 @@
+[Unit]
+Description = Cart Service
+[Service]
+User=roboshop
+Environment=REDIS_HOST=redis-{{ENV}}.vinodmcs21.com
+Environment=CATALOGUE_HOST=catalogue-{{ENV}}.vinodmcs21.com
+ExecStart=/bin/node /home/roboshop/cart/server.js
+SyslogIdentifier=cart
+
+[Install]
+WantedBy=multi-user.target

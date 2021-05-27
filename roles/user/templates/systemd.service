@@ -1,0 +1,11 @@
+[Unit]
+Description = User Service
+[Service]
+User=roboshop
+Environment=REDIS_HOST=redis-{{ENV}}.vinodmcs21.com
+Environment=MONGO_URL="mongodb://mongodb-{{ENV}}.vinodmcs21.com:27017/users"
+ExecStart=/bin/node /home/roboshop/user/server.js
+SyslogIdentifier=user
+
+[Install]
+WantedBy=multi-user.target
