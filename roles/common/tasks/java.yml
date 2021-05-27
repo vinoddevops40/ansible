@@ -1,27 +1,41 @@
-- name: install Java
-  yum:
-    name: maven
-    state: present
+## Commented since we moved from GitHub approach to Nexus
+#- name: Install Maven
+#  yum:
+#    name: maven
+#    state: present
 
-- name: create Roboshop User
+- name: Install Java
+  yum:
+    name: java
+    state: present
+-
+- name: Create RoboShop User
   user:
     name: roboshop
+## Commented since we moved from GitHub approach to Nexus
+#- name: Download from Github
+#  include_role:
+#    name: common
+#    tasks_from: download-github
 
-- name: Download from Github
+- name: Download from Nexus
   include_role:
     name: common
-    tasks_from: download-github
+    tasks_from: download-nexus
+  vars:
+    ARCHIVE_PATH: "/home/roboshop/{{COMPONENT}}"
 
-- name: Install maven Deps and compile code
-  shell: mvn clean package
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
-
-- name: Copy artifact to Project Path
-  shell: mv target/shipping-1.0.jar shipping.jar
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}
+## Commented since we moved from GitHub approach to Nexus
+#- name: Install maven Deps and compile code
+#  shell: mvn clean package
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
+#  become_user: roboshop
+#
+#- name: Copy artifact to Project Path
+#  shell: mv target/shipping-1.0.jar shipping.jar
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
 
 - name: Setup Systemd for {{COMPONENET}}
   include_tasks: "systemd.yml"
