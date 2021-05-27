@@ -11,11 +11,16 @@
     name: roboshop
   register: uout
 
-- name: Download from GitHib
+#- name: Download from GitHib
+#  include_role:
+#    name: common
+#    tasks_from: download-github
+- name: Download from Nexus
   include_role:
     name: common
-    tasks_from: download-github
-
+    tasks_from: download-nexus
+  vars:
+    ARCHIVE_PATH: "/home/roboshop/{{COMPONENT}}"
 
 - name: Install specified python requirements
   pip:
